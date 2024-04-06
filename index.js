@@ -5,7 +5,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 require("dotenv").config();
-
+const PORT = process.env.PORT || 8000;
 const signupRouter = require("./route/signup");
 const loginRouter = require("./route/login");
 const fruitsRouter = require("./route/fruits");
@@ -46,7 +46,7 @@ mongoose.connect(process.env.URL_DB + "finalprojectApp", (err) => {
 
 //server
 // app.listen(8000,"192.168.1.57",(error)=>{
-app.listen(process.env.PORT || 8000, (error) => {
-  if (!error) return console.log("server is starting....");
+app.listen(PORT, (error) => {
+  if (!error) return console.log(`server is starting....`);
   console.log(error);
 });
