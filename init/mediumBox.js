@@ -1,215 +1,159 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://127.0.0.1:27017/finalprojectApp", (err) => {
+mongoose.connect(
+  "mongodb+srv://mohamedmounir2425:5ntixHqfyo7H6k5A@cluster0.hwj29ay.mongodb.net/finalprojectApp",
+  (err) => {
     if (!err) return console.log("db connected");
     console.log(err);
-});
+  }
+);
 
-const mediumbox = require("../models/mediumBox"); 
+const mediumbox = require("../models/mediumBox");
 
 const products = [
-    new mediumbox({
- 
-        name: "turnip",
- 
-        weight: 5
+  new mediumbox({
+    name: "turnip",
 
-    }),
-    new mediumbox({
- 
-        name: "carrots",
-   
-        weight: 7
+    weight: 5,
+  }),
+  new mediumbox({
+    name: "carrots",
 
-    }),
+    weight: 7,
+  }),
 
-    
-    new mediumbox({
- 
-        name: "spud",
- 
-        weight: 5
+  new mediumbox({
+    name: "spud",
 
-    }),
+    weight: 5,
+  }),
 
-    new mediumbox({
- 
-        name: "onion",
-  
-        weight: 9
+  new mediumbox({
+    name: "onion",
 
+    weight: 9,
+  }),
 
-    }),
+  new mediumbox({
+    name: "Garlic",
 
-    new mediumbox({
- 
-        name: "Garlic",
-   
-        weight: 5
+    weight: 5,
+  }),
 
+  new mediumbox({
+    name: "yoghurt",
 
-    }),
+    weight: 5,
+  }),
 
-    new mediumbox({
- 
-        name:"yoghurt",
- 
-        weight: 5
-    }),
+  new mediumbox({
+    name: "Milk",
 
-    
+    weight: 5,
+  }),
 
-    new mediumbox({
- 
-        name:"Milk",
- 
-        weight: 5
-    }),
+  new mediumbox({
+    name: "American Cheese",
 
-    new mediumbox({
- 
-        name:"American Cheese",
- 
-        weight: 9
-    }),
+    weight: 9,
+  }),
 
-    new mediumbox({
- 
-        name:"Brie Cheese",
- 
-        weight: 5
-    }),
+  new mediumbox({
+    name: "Brie Cheese",
 
-    new mediumbox({
- 
-        name:"Beef",
- 
-        weight: 7
-    }),
+    weight: 5,
+  }),
 
-    new mediumbox({
- 
-        name:"Soft minced meat",
- 
-        weight: 5
-    }),
+  new mediumbox({
+    name: "Beef",
 
-    new mediumbox({
- 
-        name:"Lamb meat",
- 
-        weight: 9
-    }),
+    weight: 7,
+  }),
 
-   
+  new mediumbox({
+    name: "Soft minced meat",
 
-    
-    
-    
-    
-     
-     
+    weight: 5,
+  }),
 
+  new mediumbox({
+    name: "Lamb meat",
 
-       
+    weight: 9,
+  }),
 
-         new mediumbox({
- 
-        name: "ginger",
-    
-        weight: 9
-        
+  new mediumbox({
+    name: "ginger",
 
-    }),
-    new mediumbox({
- 
-        name: "Rosemary",
- 
-        weight: 5
+    weight: 9,
+  }),
+  new mediumbox({
+    name: "Rosemary",
 
-    }),
+    weight: 5,
+  }),
 
-    new mediumbox({
- 
-        name: "cinnamon",
- 
-        weight: 5
-    }),
+  new mediumbox({
+    name: "cinnamon",
 
-    new mediumbox({
- 
-        name: "Wild thyme ",
-  
-        weight: 6
+    weight: 5,
+  }),
 
-    }),
+  new mediumbox({
+    name: "Wild thyme ",
 
-    new mediumbox({
- 
-        name: "parsley",
- 
-        weight: 6
+    weight: 6,
+  }),
 
-    }),
+  new mediumbox({
+    name: "parsley",
 
-    new mediumbox({
- 
-        name: "Guava",
- 
-        weight: 5
-    }),
-    new mediumbox({
- 
-        name: "Apple",
-     
-        weight: 7
+    weight: 6,
+  }),
 
-    }),
+  new mediumbox({
+    name: "Guava",
 
-    new mediumbox({
- 
-        name: "Orange",
- 
-        weight: 5
-    }),
+    weight: 5,
+  }),
+  new mediumbox({
+    name: "Apple",
 
-    new mediumbox({
- 
-        name: "Banana",
-     
-        weight: 9
+    weight: 7,
+  }),
 
-    }),
+  new mediumbox({
+    name: "Orange",
 
-    new mediumbox({
- 
-        name: "pear",
- 
-       
-        weight: 9
+    weight: 5,
+  }),
 
+  new mediumbox({
+    name: "Banana",
 
-    }),
+    weight: 9,
+  }),
 
-]
+  new mediumbox({
+    name: "pear",
 
-var num=0;
-for (var i=0 ;i<products.length; i++){
-    console.log(i);
-    products[i].save((error,data)=>{
-        if(!error){
-        console.log(data);
-        num++;
-        if(num===products.length){
-            mongoose.disconnect();
-        }
-    
-    }else{
-        console.log(error);
+    weight: 9,
+  }),
+];
+
+var num = 0;
+for (var i = 0; i < products.length; i++) {
+  console.log(i);
+  products[i].save((error, data) => {
+    if (!error) {
+      console.log(data);
+      num++;
+      if (num === products.length) {
+        mongoose.disconnect();
+      }
+    } else {
+      console.log(error);
     }
-        
-    })
+  });
 }
-
-
