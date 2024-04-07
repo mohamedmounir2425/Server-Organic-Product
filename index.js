@@ -38,7 +38,6 @@ app.use("/mediumBox", mediumBox);
 app.use("/largeBox", largeBox);
 //database
 mongoose.set("strictQuery", false);
-console.log(process.env.URL_DB);
 mongoose.connect(process.env.URL_DB + "finalprojectApp", (err) => {
   if (!err) return console.log("db connected");
   console.log(err);
